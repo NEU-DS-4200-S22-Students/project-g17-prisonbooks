@@ -106,7 +106,7 @@ function lineChart(data) {
       .attr("stroke-width", 1.5)
       .attr("d", d3.line()
         .x(function(d) { return x(d.date) })
-        .y(function(d) { return y(d.value_c) })
+        .y(function(d) { return y(d.value_c)})
         )
 
     // Add Legend
@@ -161,7 +161,6 @@ function lineChart(data) {
         x.domain([ x.invert(extent[0]), x.invert(extent[1]) ])
         line.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
       }
-
       // Update axis and line position
       xAxis.transition().duration(1000).call(d3.axisBottom(x))
       line
@@ -169,8 +168,8 @@ function lineChart(data) {
           .transition()
           .duration(1000)
           .attr("d", d3.line()
-            .x(function(d) { return x(d.date) })
-            .y(function(d) { return y(d.value)})
+            .x(function(d) { return x(d.date)})
+            .y(function(d) { return y(d.value)})          
           )
     }
 
@@ -182,9 +181,11 @@ function lineChart(data) {
         .selectAll('path')
         .transition()
         .attr("d", d3.line()
-          .x(function(d) { return x(d.date) })
-          .y(function(d) { return y(d.value) })
-      )
+          .x(function(d) { return x(d.date)})
+          .y(function(d) { return y(d.value)})
+               
+          
+          )
     });
 }
 
