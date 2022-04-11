@@ -19,12 +19,12 @@ d3.csv("data/finalmapdata.csv").then(function(data){
         fillColor: '#fecc5c',
           fillOpacity: 0.5
           })
-    let txt = "Facility Name: "+d.FacilityName 
-    +"<br>City: "+ d.City
-    +"<br> Require paperback book: " + d.only_paperback
-    +"<br> Good with used book: " + d.condition_good_used_okay
-    +"<br> Require bundle: " + d.bundle
-    +"<br> Good with hardcover book: " + d.hardcover_okay
+    let txt = "<b>Facility Name: </b>"+d.FacilityName 
+    +"<br><b>City: </b>"+ d.City
+    +"<br><b> Require paperback book: </b>" + d.only_paperback
+    +"<br><b> Good with used book: </b>" + d.condition_good_used_okay
+    +"<br><b> Require bundle: </b>" + d.bundle
+    +"<br><b> Good with hardcover book: </b>" + d.hardcover_okay
     circle.bindPopup(txt)
     circlesLayer.addLayer(circle) })});
 
