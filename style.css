@@ -48,6 +48,14 @@ h1, h2, h3 {
 	display: inline-block;
 }
 
+#vis1 {
+	display: inline-block;
+}
+
+#vis2 {
+	display: inline-block;
+}
+
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
 #forkongithub a{
 	background:#00F;

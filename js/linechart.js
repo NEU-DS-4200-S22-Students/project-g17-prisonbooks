@@ -93,36 +93,15 @@ function lineChart(data) {
         .y(function(d) { return y(d.value) })
         )
 
-    // Add the George Floyd line
-    line.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "red")
-      .attr("stroke-width", 1.5)
-      .attr("d", d3.line()
-        .x(function(d) { return x(d.date) })
-        .y(function(d) { return y(d.value_b) })
-        )
-
-
-    // Add the Prison Book Program line
-    line.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "green")
-      .attr("stroke-width", 1.5)
-      .attr("d", d3.line()
-        .x(function(d) { return x(d.date) })
-        .y(function(d) { return y(d.value_c)})
-        )
+    
 
     // Add Legend
-    svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "red")
-    svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "green")
-    svg1.append("circle").attr("cx",278).attr("cy",70).attr("r", 6).style("fill", "steelblue")
-    svg1.append("text").attr("x", 290).attr("y", 70).text("Total Donations").style("font-size", "10px").attr("alignment-baseline","middle")
-    svg1.append("text").attr("x", 290).attr("y", 30).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
-    svg1.append("text").attr("x", 290).attr("y", 50).text("Prison Book Program").style("font-size", "10px").attr("alignment-baseline","middle")
+    //svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "red")
+    //svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "green")
+    svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "steelblue")
+    svg1.append("text").attr("x", 290).attr("y", 30).text("Total Donations").style("font-size", "10px").attr("alignment-baseline","middle")
+   // svg1.append("text").attr("x", 290).attr("y", 30).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
+    //svg1.append("text").attr("x", 290).attr("y", 50).text("Prison Book Program").style("font-size", "10px").attr("alignment-baseline","middle")
 
     var clip = svg1.append("defs").append("svg:clipPath")
         .attr("id", "clip")
