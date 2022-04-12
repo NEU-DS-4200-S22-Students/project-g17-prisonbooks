@@ -23,11 +23,14 @@ let svg1 = d3.select('#vis1')
 
 function lineChart(data) {
 
+
+
   // Graph Title
   svg1.append("text")
         .attr("x", 10 + (width / 2))             
-        .attr("y", 15 - (margin.top / 2))
-        .attr("text-anchor", "middle")  
+        .attr("y", 10 - (margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style('stroke', 'black')  
         .style("font-size", "14px")  
         .text("Count of Daily Donations from 1/1/20 (15 day rolling avg)");
 
@@ -56,7 +59,7 @@ function lineChart(data) {
     var y = d3.scalePow()
       .domain([0, 4500])
       .exponent(.35)
-      .range([ height, 0 ]);
+      .range([ height, 30 ]);
     svg1.append("g")
       .call(d3.axisLeft(y));
 
@@ -110,13 +113,6 @@ function lineChart(data) {
         )
 
     // Add Legend
-    svg1.append('rect')
-     .attr('x', 268)
-     .attr('y', 20)
-     .attr('width', 140)
-     .attr('height', 60)
-     .attr('stroke', 'black')
-     .attr('fill', '#d3d3d3');
     svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "red")
     svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "green")
     svg1.append("circle").attr("cx",278).attr("cy",70).attr("r", 6).style("fill", "steelblue")
