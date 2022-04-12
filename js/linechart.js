@@ -16,10 +16,14 @@ let svg1 = d3.select('#vis1')
   .append('svg')
   .attr('preserveAspectRatio', 'xMidYMid meet') // this will scale your visualization according to the size of its parent element and the page.
   .attr('width', '100%') // this is now required by Chrome to ensure the SVG shows up at all
-  .style('background-color', '#ccc') // change the background color to light gray
   .attr('viewBox', [-50, -10, width + margin.left + margin.right, height + margin.top + margin.bottom].join(' '))
-  
+  // change the view box
 
+// let svg1 = d3
+//   .select('#vis1')
+//   .append('svg')
+//     .attr('width', width)
+//     .attr('height', height + 140);
 
 function lineChart(data) {
 

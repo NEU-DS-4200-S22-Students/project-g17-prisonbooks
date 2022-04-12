@@ -5,8 +5,8 @@ d3.json('data/topdonors.json').then(function(data) {
 
     // Create SVG
     let
-      width = 800,
-      height = 600;
+      width = 500,
+      height = 300;
      
     let margin = {
       top: 40,
@@ -15,12 +15,12 @@ d3.json('data/topdonors.json').then(function(data) {
       right: 30
     };
     
-    let svg = d3
-      .select('#vis2')
-      .append('svg')
-        .attr('width', width)
-        .attr('height', height + 140)
-        .style('background', '#c5e1e6');
+    let svg = d3.select('#vis2')
+    .append('svg')
+    .attr('preserveAspectRatio', 'xMidYMid meet') // this will scale your visualization according to the size of its parent element and the page.
+    .attr('width', '100%') // this is now required by Chrome to ensure the SVG shows up at all
+    .attr('viewBox', [-50, -10, width + margin.left + margin.right, height + margin.top + margin.bottom].join(' '))
+    // change the view box
     
     // Define Scales
     let yScale = d3.scaleLinear()

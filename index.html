@@ -37,20 +37,6 @@
   <!-- leaflet provider-->
   <script src="js/leaflet-providers.js"></script>  
 </head>
-<style>
-  div.tooltip {
-       position: absolute;
-       text-align: center;
-       width: 60px;
-       height: 28px;
-       padding: 2px;
-       font: 12px sans-serif;
-       background: lightsteelblue;
-       border: 0px;
-       border-radius: 8px;
-       pointer-events: none;
-     }
-</style>
 <!-- Main page content -->
 
 <body>
@@ -98,14 +84,13 @@
 
 
   <!-- Visualization goes here -->
+  <!-- Convert to span-->
   <div class='vis-holder'>
-    <div id="mymap" style="width: 1000px; height: 500px"></div>
-    <svg id='vis1' preserveAspectRatio='xMidYMid meet' class='vis-svg' viewBox='-200 0 900 400' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
-      </svg>
-    <svg id='vis2' preserveAspectRatio='xMidYMid meet' class='vis-svg' viewBox='0 0 900 400' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
-      </svg>
-    <svg id='piechart' preserveAspectRatio='xMidYMid meet' class='vis-svg' viewBox='0 0 900 400' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
-      </svg>
+    <div id="mymap" style="width:700px; height: 500px"></div>
+    <div id="vis1" style="width: 500px; height: 500px; left: 500px"></div>
+    <div id = "vis2" style="width: 500px; height: 500px"></div>
+    <div id="piechart" style="width: 500x; height: 500px"></div>
+
   </div>
 
 

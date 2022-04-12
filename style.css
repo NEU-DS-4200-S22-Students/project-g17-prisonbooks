@@ -44,6 +44,10 @@ h1, h2, h3 {
   flex: 1;
 }
 
+#mymap {
+	display: inline-block;
+}
+
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
 #forkongithub a{
 	background:#00F;
@@ -111,4 +115,16 @@ h1, h2, h3 {
 		margin: 0 0 5px;
 		color: #777;
 	}
+	div.tooltip {
+		position: absolute;
+		text-align: center;
+		width: 60px;
+		height: 28px;
+		padding: 2px;
+		font: 12px sans-serif;
+		background: rgb(255, 255, 255);
+		border: 0px;
+		border-radius: 8px;
+		pointer-events: none;
+	  }
 }
