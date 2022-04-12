@@ -28,7 +28,7 @@ h1, h2, h3 {
 }
 
 
-./* The line chart will take the left half of the screen */
+/* The line chart will take the left half of the screen */
 .leftchart-holder {
   flex: 0 0 50%;
 }
