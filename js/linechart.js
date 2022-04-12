@@ -26,9 +26,6 @@ let svg1 = d3.select('#vis1')
 //     .attr('height', height + 140);
 
 function lineChart(data) {
-
-
-
   // Graph Title
   svg1.append("text")
         .attr("x", 10 + (width / 2))             
@@ -83,25 +80,52 @@ function lineChart(data) {
       .attr("clip-path", "url(#clip)")
 
     // Add the total line
+
     line.append("path")
       .datum(data)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
+      .attr("id", "path1")
       .attr("d", d3.line()
         .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.value) })
         )
 
+    line.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "red")
+      .attr("stroke-width", 1.5)
+      .attr("id", "path2")
+      .attr("d", d3.line()
+        .x(function(d) { return x(d.date) })
+        .y(function(d) { return y(d.value_b) })
+        )
+
+    line.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "green")
+      .attr("stroke-width", 1.5)
+      .attr("id", "path3")
+      .attr("d", d3.line()
+        .x(function(d) { return x(d.date) })
+        .y(function(d) { return y(d.value_c) })
+        )
+
+      
+
+
     
 
     // Add Legend
-    //svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "red")
-    //svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "green")
-    svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "steelblue")
-    svg1.append("text").attr("x", 290).attr("y", 30).text("Total Donations").style("font-size", "10px").attr("alignment-baseline","middle")
-   // svg1.append("text").attr("x", 290).attr("y", 30).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
-    //svg1.append("text").attr("x", 290).attr("y", 50).text("Prison Book Program").style("font-size", "10px").attr("alignment-baseline","middle")
+    svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "red")
+    svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "green")
+    svg1.append("circle").attr("cx",278).attr("cy",70).attr("r", 6).style("fill", "steelblue")
+    svg1.append("text").attr("x", 290).attr("y", 30).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
+    svg1.append("text").attr("x", 290).attr("y", 50).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
+    svg1.append("text").attr("x", 290).attr("y", 70).text("Total Donations").style("font-size", "10px").attr("alignment-baseline","middle")
 
     var clip = svg1.append("defs").append("svg:clipPath")
         .attr("id", "clip")
@@ -143,12 +167,25 @@ function lineChart(data) {
       // Update axis and line position
       xAxis.transition().duration(1000).call(d3.axisBottom(x))
       line
-          .selectAll('path')
-          .transition()
-          .duration(1000)
-          .attr("d", d3.line()
-            .x(function(d) {return x(d.date)})
-            .y(function(d) {return y(d.value)})          
+        .select('#path1')
+        .transition(1000)
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.date)})
+          .y(function(d) { return y(d.value)})
+          )
+      line
+        .select('#path2')
+        .transition(1000)
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.date)})
+          .y(function(d) { return y(d.value_b)})
+          )
+      line
+        .select('#path3')
+        .transition(1000)
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.date)})
+          .y(function(d) { return y(d.value_c)})
           )
     }
 
@@ -157,13 +194,25 @@ function lineChart(data) {
       x.domain(d3.extent(data, function(d) { return d.date; }))
       xAxis.transition().call(d3.axisBottom(x))
       line
-        .selectAll('path')
-        .transition()
+        .select('#path1')
+        .transition(1000)
         .attr("d", d3.line()
           .x(function(d) { return x(d.date)})
           .y(function(d) { return y(d.value)})
-               
-          
+          )
+      line
+        .select('#path2')
+        .transition(1000)
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.date)})
+          .y(function(d) { return y(d.value_b)})
+          )
+      line
+        .select('#path3')
+        .transition(1000)
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.date)})
+          .y(function(d) { return y(d.value_c)})
           )
     });
 }
