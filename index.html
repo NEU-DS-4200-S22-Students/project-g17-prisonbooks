@@ -86,12 +86,25 @@
 
   </div>
 
+
+    <!-- Add buttons for piechart-->
+  <button onclick="update(data1)">only_paperback</button>
+  <button onclick="update(data2)">condition_good_used_okay</button>
+  <button onclick="update(data3)">bundle</button>
+  <button onclick="update(data4)">has_no_restrictions</button>
+  <button onclick="update(data5)">condition_new</button>
+  <button onclick="update(data6)">needs_prior_approval</button>
+  <button onclick="update(data7)">hardcover_okay</button>
+
+
   <!-- Visualization goes here -->
   <div class='vis-holder'>
     <div id="mymap" style="width: 1000px; height: 500px"></div>
     <svg id='vis1' preserveAspectRatio='xMidYMid meet' class='vis-svg' viewBox='-200 0 900 400' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
       </svg>
     <svg id='vis2' preserveAspectRatio='xMidYMid meet' class='vis-svg' viewBox='0 0 900 400' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+      </svg>
+    <svg id='piechart' preserveAspectRatio='xMidYMid meet' class='vis-svg' viewBox='0 0 900 400' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
       </svg>
   </div>
 
