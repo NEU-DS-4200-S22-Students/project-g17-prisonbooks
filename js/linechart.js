@@ -168,8 +168,8 @@ function lineChart(data) {
           .transition()
           .duration(1000)
           .attr("d", d3.line()
-            .x(function(d) { return x(d.date)})
-            .y(function(d) { return y(d.value)})          
+            .x(function(d) {return x(d.date)})
+            .y(function(d) {return y(d.value)})          
           )
     }
 
