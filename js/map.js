@@ -16,7 +16,7 @@ d3.csv("data/finalmapdata.csv").then(function(data){
 
   let circle = L.circle([d.lat, d.long], 7000, {
         color: d.color_v2,
-        weight: 2,z
+        weight: 2,
         fillColor: d.color_v2,
           fillOpacity: 0.5
           })
