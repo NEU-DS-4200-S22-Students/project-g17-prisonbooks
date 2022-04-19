@@ -13,10 +13,11 @@ circlesLayer.clearLayers()
 
 d3.csv("data/finalmapdata.csv").then(function(data){
   data.forEach(function(d){
+
   let circle = L.circle([d.lat, d.long], 7000, {
-        color: '#fd8d3c',
-        weight: 2,
-        fillColor: '#fecc5c',
+        color: d.color_v2,
+        weight: 2,z
+        fillColor: d.color_v2,
           fillOpacity: 0.5
           })
     let txt = "<b>Facility Name: </b>"+d.FacilityName 

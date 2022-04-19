@@ -59,7 +59,7 @@ function lineChart(data) {
     // Add Y axis  
     var y = d3.scalePow()
       .domain([0, 4500])
-      .exponent(.35)
+      .exponent(.4)
       .range([ height, 30 ]);
     svg1.append("g")
       .call(d3.axisLeft(y));
@@ -166,6 +166,7 @@ function lineChart(data) {
       }
       // Update axis and line position
       xAxis.transition().duration(1000).call(d3.axisBottom(x))
+      
       line
         .select('#path1')
         .transition(1000)
