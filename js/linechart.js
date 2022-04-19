@@ -124,7 +124,7 @@ function lineChart(data) {
     svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "green")
     svg1.append("circle").attr("cx",278).attr("cy",70).attr("r", 6).style("fill", "steelblue")
     svg1.append("text").attr("x", 290).attr("y", 30).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
-    svg1.append("text").attr("x", 290).attr("y", 50).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
+    svg1.append("text").attr("x", 290).attr("y", 50).text("Prison Book Program").style("font-size", "10px").attr("alignment-baseline","middle")
     svg1.append("text").attr("x", 290).attr("y", 70).text("Total Donations").style("font-size", "10px").attr("alignment-baseline","middle")
 
     var clip = svg1.append("defs").append("svg:clipPath")
