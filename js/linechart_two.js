@@ -55,13 +55,18 @@ function lineChart(data) {
     .attr("transform", "rotate(-90)")
     .text("Date");
 
+
+  var dollarFormat = function(d) { return d3.format('($.0f')(d) };
+
+
     // Add Y axis  
     var y = d3.scalePow()
       .domain([0, 10000])
       .exponent(.4)
       .range([ height, 30 ]);
     svg1.append("g")
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y)
+        .tickFormat(dollarFormat));
 
 
     xAxis
