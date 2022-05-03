@@ -4,7 +4,7 @@
 d3.csv('data/cleaned_donations.csv',
   function(d){
     return { date : d3.timeParse("%m/%d/%y")(d.Date),
-     value: d.total_n, value_b: d.floyd_n, value_c: d.pbp_n}
+     value: d.total_d, value_b: d.floyd_d, value_c: d.pbp_d}
   }).then(lineChart);
 
 
@@ -12,7 +12,7 @@ var margin = {top: 10, right: 40, bottom: 30, left: 60},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
-let svg1 = d3.select('#vis1')
+let svg1 = d3.select('#vis3')
   .append('svg')
   .attr('preserveAspectRatio', 'xMidYMid meet') // this will scale your visualization according to the size of its parent element and the page.
   .attr('width', '100%') // this is now required by Chrome to ensure the SVG shows up at all
@@ -33,16 +33,16 @@ function lineChart(data) {
         .attr("text-anchor", "middle")
         .style('stroke', 'black')  
         .style("font-size", "14px")  
-        .text("Count of Daily Donations from 1/1/20 (15 day rolling avg)");
+        .text("Daily Total Donation Amount from 1/1/20 (15 day rolling avg)");
 
 
   // Add X Axis
-  var xx = d3.scaleTime()
+  var x = d3.scaleTime()
       .domain(d3.extent(data, function(d) { return d.date; }))
       .range([ 0, width ]);
-    xxAxis = svg1.append("g")
+    xAxis = svg1.append("g")
       .attr("transform", `translate(0, ${height})`)
-      .call(d3.axisBottom(xx));  
+      .call(d3.axisBottom(x));  
 
 
     
@@ -58,7 +58,7 @@ function lineChart(data) {
 
     // Add Y axis  
     var y = d3.scalePow()
-      .domain([0, 3500])
+      .domain([0, 10000])
       .exponent(.4)
       .range([ height, 30 ]);
     svg1.append("g")
@@ -74,73 +74,58 @@ function lineChart(data) {
       .attr("dy", ".75em")
       
       .style("font-size", "10px")
-      .text("Number of Daily Donations (15 day rolling avg)");
+      .text("Number of Donation (15 day rolling avg)");
 
     const line = svg1.append('g')
       .attr("clip-path", "url(#clip)")
 
     // Add the total line
 
-    line.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "#0247FE")
-      .attr("stroke-width", 1.5)
-      .attr("id", "path1")
-      .attr("d", d3.line()
-        .x(function(d) { return xx(d.date) })
-        .y(function(d) { return y(d.value) })
-        )
+    
 
     line.append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "#FE2712")
+      .attr("stroke", "#FB9902")
       .attr("stroke-width", 1.5)
       .attr("id", "path2")
       .attr("d", d3.line()
-        .x(function(d) { return xx(d.date) })
+        .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.value_b) })
         )
 
     line.append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "#ABAB26")
+      .attr("stroke", "#66B032")
       .attr("stroke-width", 1.5)
       .attr("id", "path3")
       .attr("d", d3.line()
-        .x(function(d) { return xx(d.date) })
+        .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.value_c) })
         )
 
-     var div = d3.select("#vis2").append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
-
-    var mouseover = function(event, d) {
-        div.transition()
-            .duration(200)
-            .style("opacity", .9);
-        div.html("Count: " + d.value)
-            .style("left", (event.pageX) + "px")
-            .style("top", (event.pageY - 28) + "px");
-        };
+    line.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "#8601AF")
+      .attr("stroke-width", 1.5)
+      .attr("id", "path1")
+      .attr("d", d3.line()
+        .x(function(d) { return x(d.date) })
+        .y(function(d) { return y(d.value) })
+        )
 
 
-    var mouseout = function(event, d) {
-        div.transition()
-            .duration(500)
-            .style("opacity", 0);
-        }; 
+      
 
 
     
 
     // Add Legend
-    svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "#FE2712")
-    svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "#ABAB26")
-    svg1.append("circle").attr("cx",278).attr("cy",70).attr("r", 6).style("fill", "#0247FE")
+    svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "#FB9902")
+    svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "#66B032")
+    svg1.append("circle").attr("cx",278).attr("cy",70).attr("r", 6).style("fill", "#8601AF")
     svg1.append("text").attr("x", 290).attr("y", 30).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
     svg1.append("text").attr("x", 290).attr("y", 50).text("Prison Book Program").style("font-size", "10px").attr("alignment-baseline","middle")
     svg1.append("text").attr("x", 290).attr("y", 70).text("Total Donations").style("font-size", "10px").attr("alignment-baseline","middle")
@@ -174,64 +159,63 @@ function lineChart(data) {
       // If no selection, back to initial coordinate. Otherwise, update X axis domain
       if(!extent){
         if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
-        xx.domain([ 4,8]) 
+        x.domain([ 4,8]) 
       }
 
       else{
 
-        xx.domain([ xx.invert(extent[0]), xx.invert(extent[1]) ])
-
+        x.domain([ x.invert(extent[0]), x.invert(extent[1]) ])
         line.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
       }
       // Update axis and line position
-      xxAxis.transition().duration(1000).call(d3.axisBottom(xx))
+      xAxis.transition().duration(1000).call(d3.axisBottom(x))
       
       line
         .select('#path1')
         .transition(1000)
         .attr("d", d3.line()
-          .x(function(d) { return xx(d.date)})
+          .x(function(d) { return x(d.date)})
           .y(function(d) { return y(d.value)})
           )
       line
         .select('#path2')
         .transition(1000)
         .attr("d", d3.line()
-          .x(function(d) { return xx(d.date)})
+          .x(function(d) { return x(d.date)})
           .y(function(d) { return y(d.value_b)})
           )
       line
         .select('#path3')
         .transition(1000)
         .attr("d", d3.line()
-          .x(function(d) { return xx(d.date)})
+          .x(function(d) { return x(d.date)})
           .y(function(d) { return y(d.value_c)})
           )
     }
 
 
     svg1.on("dblclick",function(){
-      xx.domain(d3.extent(data, function(d) { return d.date; }))
-      xxAxis.transition().call(d3.axisBottom(xx))
+      x.domain(d3.extent(data, function(d) { return d.date; }))
+      xAxis.transition().call(d3.axisBottom(x))
       line
         .select('#path1')
         .transition(1000)
         .attr("d", d3.line()
-          .x(function(d) { return xx(d.date)})
+          .x(function(d) { return x(d.date)})
           .y(function(d) { return y(d.value)})
           )
       line
         .select('#path2')
         .transition(1000)
         .attr("d", d3.line()
-          .x(function(d) { return xx(d.date)})
+          .x(function(d) { return x(d.date)})
           .y(function(d) { return y(d.value_b)})
           )
       line
         .select('#path3')
         .transition(1000)
         .attr("d", d3.line()
-          .x(function(d) { return xx(d.date)})
+          .x(function(d) { return x(d.date)})
           .y(function(d) { return y(d.value_c)})
           )
     });
