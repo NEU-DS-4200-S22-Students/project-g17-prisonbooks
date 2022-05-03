@@ -10,7 +10,7 @@ d3.json('data/topdonors.json').then(function(data) {
      
     let margin = {
       top: 40,
-      bottom: 30,
+      bottom: 70,
       left: 30,
       right: 30
     };
@@ -78,7 +78,7 @@ d3.json('data/topdonors.json').then(function(data) {
       // ----------------
 
     // Three function that change the tooltip when user hover / move / leave a cell
-var div = d3.select("#vis2").append("div")
+var div = svg.append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 

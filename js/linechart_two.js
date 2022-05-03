@@ -8,7 +8,7 @@ d3.csv('data/cleaned_donations.csv',
   }).then(lineChart);
 
 
-var margin = {top: 10, right: 40, bottom: 30, left: 60},
+var margin = {top: 10, right: 40, bottom: 70, left: 60},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -19,11 +19,7 @@ let svg1 = d3.select('#vis3')
   .attr('viewBox', [-50, -10, width + margin.left + margin.right, height + margin.top + margin.bottom].join(' '))
   // change the view box
 
-// let svg1 = d3
-//   .select('#vis1')
-//   .append('svg')
-//     .attr('width', width)
-//     .attr('height', height + 140);
+
 
 function lineChart(data) {
   // Graph Title
@@ -42,9 +38,12 @@ function lineChart(data) {
       .range([ 0, width ]);
     xAxis = svg1.append("g")
       .attr("transform", `translate(0, ${height})`)
-      .call(d3.axisBottom(x));  
+      .call(d3.axisBottom(x)); 
 
 
+
+
+      
     
   // X Axis Label
   svg1.append("text")
@@ -63,6 +62,15 @@ function lineChart(data) {
       .range([ height, 30 ]);
     svg1.append("g")
       .call(d3.axisLeft(y));
+
+
+    xAxis
+          .selectAll("text")  
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-65)");
+
 
   // Y Axis Label
   svg1.append("text")
@@ -169,6 +177,12 @@ function lineChart(data) {
       }
       // Update axis and line position
       xAxis.transition().duration(1000).call(d3.axisBottom(x))
+      xAxis
+          .selectAll("text")  
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-65)");
       
       line
         .select('#path1')
@@ -197,6 +211,12 @@ function lineChart(data) {
     svg1.on("dblclick",function(){
       x.domain(d3.extent(data, function(d) { return d.date; }))
       xAxis.transition().call(d3.axisBottom(x))
+      xAxis
+          .selectAll("text")  
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-65)");
       line
         .select('#path1')
         .transition(1000)

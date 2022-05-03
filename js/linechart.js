@@ -8,7 +8,7 @@ d3.csv('data/cleaned_donations.csv',
   }).then(lineChart);
 
 
-var margin = {top: 10, right: 40, bottom: 30, left: 60},
+var margin = {top: 10, right: 40, bottom: 70, left: 60},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -17,13 +17,9 @@ let svg1 = d3.select('#vis1')
   .attr('preserveAspectRatio', 'xMidYMid meet') // this will scale your visualization according to the size of its parent element and the page.
   .attr('width', '100%') // this is now required by Chrome to ensure the SVG shows up at all
   .attr('viewBox', [-50, -10, width + margin.left + margin.right, height + margin.top + margin.bottom].join(' '))
-  // change the view box
 
-// let svg1 = d3
-//   .select('#vis1')
-//   .append('svg')
-//     .attr('width', width)
-//     .attr('height', height + 140);
+
+
 
 function lineChart(data) {
   // Graph Title
@@ -50,8 +46,8 @@ function lineChart(data) {
   svg1.append("text")
     .attr("class", "x label")
     .attr("text-anchor", "end")
-    .attr("x", width)
-    .attr("y", height + 30)
+    .attr("x", width,)
+    .attr("y", height + 30, 0)
     .style("font-size", "12px")  
     .attr("transform", "rotate(-90)")
     .text("Date");
@@ -63,6 +59,13 @@ function lineChart(data) {
       .range([ height, 30 ]);
     svg1.append("g")
       .call(d3.axisLeft(y));
+
+    xxAxis
+          .selectAll("text")  
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-65)");
 
   // Y Axis Label
   svg1.append("text")
@@ -76,8 +79,32 @@ function lineChart(data) {
       .style("font-size", "10px")
       .text("Number of Daily Donations (15 day rolling avg)");
 
+
+  const div = svg1.append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+  const mouseover = function(event, d) {
+    div.transition()
+        .duration(200)
+        .style("opacity", .9);
+    div.html("Count: ")
+        .style("left", (event.pageX) + "px")
+        .style("top", (event.pageY - 28) + "px");
+    };
+
+  const mouseout = function(event, d) {
+    div.transition()
+        .duration(500)
+        .style("opacity", 0);
+    };
+
+
+
     const line = svg1.append('g')
       .attr("clip-path", "url(#clip)")
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout)
 
     // Add the total line
 
@@ -91,6 +118,7 @@ function lineChart(data) {
         .x(function(d) { return xx(d.date) })
         .y(function(d) { return y(d.value) })
         )
+      
 
     line.append("path")
       .datum(data)
@@ -102,6 +130,7 @@ function lineChart(data) {
         .x(function(d) { return xx(d.date) })
         .y(function(d) { return y(d.value_b) })
         )
+     
 
     line.append("path")
       .datum(data)
@@ -113,29 +142,7 @@ function lineChart(data) {
         .x(function(d) { return xx(d.date) })
         .y(function(d) { return y(d.value_c) })
         )
-
-     var div = d3.select("#vis2").append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
-
-    var mouseover = function(event, d) {
-        div.transition()
-            .duration(200)
-            .style("opacity", .9);
-        div.html("Count: " + d.value)
-            .style("left", (event.pageX) + "px")
-            .style("top", (event.pageY - 28) + "px");
-        };
-
-
-    var mouseout = function(event, d) {
-        div.transition()
-            .duration(500)
-            .style("opacity", 0);
-        }; 
-
-
-    
+        
 
     // Add Legend
     svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "#FE2712")
@@ -185,6 +192,12 @@ function lineChart(data) {
       }
       // Update axis and line position
       xxAxis.transition().duration(1000).call(d3.axisBottom(xx))
+      xxAxis
+          .selectAll("text")  
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-65)");
       
       line
         .select('#path1')
@@ -213,6 +226,12 @@ function lineChart(data) {
     svg1.on("dblclick",function(){
       xx.domain(d3.extent(data, function(d) { return d.date; }))
       xxAxis.transition().call(d3.axisBottom(xx))
+      xxAxis
+          .selectAll("text")  
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-65)");
       line
         .select('#path1')
         .transition(1000)
