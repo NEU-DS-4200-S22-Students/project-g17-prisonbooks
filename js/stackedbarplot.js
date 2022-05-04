@@ -81,6 +81,44 @@ svg5.append("text").attr("x", 20).attr("y", 385).text("False").style("font-size"
         .attr("y", d => y(d[1]))
         .attr("height", d => y(d[0]) - y(d[1]))
         .attr("width",x.bandwidth())
+
+
+
+
+          // ----------------
+      // Create a tooltip 
+      // ----------------
+
+    // Three function that change the tooltip when user hover / move / leave a cell
+    var div = d3.select("#stackedbar").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+var mouseover = function(event, d) {
+    div.transition()
+        .duration(200)
+        .style("opacity", .9);
+        console.log('d:',d);
+        console.log('d[0]:',d[[0]]);
+        console.log('d[1]:',d[1]);
+    div.html("Count: " + (d[1]) + '%')
+        .style("left", (event.pageX) + "px")
+        .style("top", (event.pageY - 28) + "px");
+    };
+
+
+var mouseout = function(event, d) {
+    div.transition()
+        .duration(500)
+        .style("opacity", 0);
+    };
+    
+
+
+
+
+
+
 })
 
 
