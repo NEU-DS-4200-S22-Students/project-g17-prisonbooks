@@ -4,6 +4,7 @@ d3.json('data/topdonors.json').then(function(data) {
 
 
 
+
     // Create SVG
     let
       width = 500,
@@ -95,7 +96,7 @@ d3.json('data/topdonors.json').then(function(data) {
             .style("opacity", 0);
         };
 
-  
+ 
   //Draw bars
   let bar = svg
     .selectAll('rect')
