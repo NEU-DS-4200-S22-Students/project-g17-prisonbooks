@@ -85,7 +85,7 @@ svg5.append("text").attr("x", 20).attr("y", 385).text("False").style("font-size"
 
 
 
-          // ----------------
+      // ----------------
       // Create a tooltip 
       // ----------------
 
@@ -98,10 +98,8 @@ var mouseover = function(event, d) {
     div.transition()
         .duration(200)
         .style("opacity", .9);
-        console.log('d:',d);
-        console.log('d[0]:',d[[0]]);
-        console.log('d[1]:',d[1]);
-    div.html("Count: " + (d[1]) + '%')
+
+    div.html("Percentage: " + (d[1] - d[0] )+ '%')
         .style("left", (event.pageX) + "px")
         .style("top", (event.pageY - 28) + "px");
     };
