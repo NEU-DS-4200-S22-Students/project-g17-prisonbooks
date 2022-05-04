@@ -1,8 +1,12 @@
 /* General formatting */
 body {
-	padding: 0 10px;
+	padding: 10 200px;
 	font: 18px/1.5 -apple-system, BlinkMacSystemFont, "avenir next",avenir, "Segoe UI", "lucida grande", "helvetica neue", helvetica, "Fira Sans",roboto, noto, "Droid Sans", cantarell, oxygen, ubuntu, "franklin gothic medium", "century gothic", "Liberation Sans",
 	sans-serif;
+	overflow: hidden;
+	color:rgb(255, 255, 255);
+	background-color: black;
+
 }
 
 h1, h2, h3 {
@@ -14,13 +18,6 @@ h1, h2, h3 {
 	max-width: 650px;
 	margin: 40px auto;
 }
-
-MARGINS = {
-      top: 20,
-      right: 20,
-      bottom: 20,
-      left: 7500
-},
 
 /* But your visualization should be full-width and full-height */
 .vis-holder {
@@ -57,10 +54,24 @@ MARGINS = {
 
 #vis1 {
 	display: inline-block;
+	position: absolute;
+	left: 10%;
+	top: 10%;
+	transform: translate(20%, - 150%);
 }
 
 #vis2 {
 	display: inline-block;
+	position: absolute;
+	top: 10%;
+	transform: translate(10%, - 150%);
+}
+
+#vis3 {
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	transform: translate(20%, - 150%);
 }
 
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
@@ -142,4 +153,136 @@ MARGINS = {
 		border-radius: 8px;
 		pointer-events: none;
 	  }
+}
+html { height: 100%; }
+body { 
+    position: relative; 
+    height: 100%; 
+    width: 100%; 
+    margin: auto;
+}
+.storyboard-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    transition: left 1s;
+}
+/* styling the area of the slides */
+.slideshow {
+	overflow: hidden;
+	width: 100%;
+	height: 700px;
+	position: relative;
+}
+
+.slide-wrapper{
+	position: absolute;
+	transform: translate (-50%, -50%);
+}
+
+.slide{	
+	width: 100%;
+	height: 700px;
+	position: relative;
+	overflow: hidden;
+}
+
+.text-section1{
+	position: absolute;
+	margin-left: 150px;
+	margin-right: 150px;
+	top: 35%;                        
+	transform: translate(0, 40%);
+	text-align: center;
+}
+.text-section{
+	position: absolute;
+	margin-left: 150px;
+	margin-right: 150px;
+	top: 40%;                        
+	transform: translate(10%, 30%);
+	text-align: center;
+}
+.flow-button-back-button{
+	position: absolute;
+	left: 85%;
+	top: 90%;
+	transform: translate(90%, 10%);
+}
+
+.flow-button{
+	position: absolute;
+	left: 90%;
+	top: 90%;
+	transform: translate(90%, 10%);
+}
+
+.description{
+	margin-right: 250px;
+	margin-left: 150px;
+	position: absolute;
+	top: 20%;
+	left: 25%;
+	right: 10%;
+	transform: translate(70%, 10%);
+}
+
+#mymap{
+	position: absolute;
+}
+
+#return{
+	position: absolute;
+	left: 85%;
+	top: 90%;
+	transform: translate(90%, 10%);
+}
+
+.big-button-inverse-button{
+	width:100px;
+	height:100px;
+	left: 75%;
+	top: 50%;
+	font-size: large;
+	font-weight: 600;
+	transform: translate(630%,80%);
+}
+
+.storyboard-h2{
+	position: absolute;
+	left: 32%;
+	top: 10%;
+}
+#text-section-3{
+	position: absolute;
+	margin-left: 150px;
+	margin-right: 150px;
+	top: 40%;                        
+	text-align: center;
+}
+#stackedbar{
+	top: 50%;
+	left: 10%;
+	transform: translate(0%,30%);
+}
+#description-donation-linechart{
+	top: 65%;
+	margin-left: 150px;
+	margin-right: 200px;
+	left: -15%;
+	text-align: center;
+}
+#description-donation{
+	margin-right: 250px;
+	margin-left: 150px;
+	position: absolute;
+	top: 30%;
+	left: 25%;
+	right: 10%;
+	transform: translate(70%, 10%);
 }

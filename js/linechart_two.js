@@ -27,7 +27,7 @@ function lineChart(data) {
         .attr("x", 10 + (width / 2))             
         .attr("y", 10 - (margin.top / 2))
         .attr("text-anchor", "middle")
-        .style('stroke', 'black')  
+        .style('stroke', 'white')
         .style("font-size", "14px")  
         .text("Daily Total Donation Amount from 1/1/20 (15 day rolling avg)");
 
@@ -83,10 +83,9 @@ function lineChart(data) {
       .attr("text-anchor", "end")
       .attr("y", -50)
       .attr("x", -60)
-
       .attr("dy", ".75em")
-      
       .style("font-size", "10px")
+      .style('fill', 'white')
       .text("Number of Donation (15 day rolling avg)");
 
     const line = svg1.append('g')
@@ -139,9 +138,9 @@ function lineChart(data) {
     svg1.append("circle").attr("cx",278).attr("cy",30).attr("r", 6).style("fill", "#FB9902")
     svg1.append("circle").attr("cx",278).attr("cy",50).attr("r", 6).style("fill", "#66B032")
     svg1.append("circle").attr("cx",278).attr("cy",70).attr("r", 6).style("fill", "#8601AF")
-    svg1.append("text").attr("x", 290).attr("y", 30).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle")
-    svg1.append("text").attr("x", 290).attr("y", 50).text("Prison Book Program").style("font-size", "10px").attr("alignment-baseline","middle")
-    svg1.append("text").attr("x", 290).attr("y", 70).text("Total Donations").style("font-size", "10px").attr("alignment-baseline","middle")
+    svg1.append("text").attr("x", 290).attr("y", 30).text("George Floyd Bail Fund").style("font-size", "10px").attr("alignment-baseline","middle").style("fill","white")
+    svg1.append("text").attr("x", 290).attr("y", 50).text("Prison Book Program").style("font-size", "10px").attr("alignment-baseline","middle").style("fill","white")
+    svg1.append("text").attr("x", 290).attr("y", 70).text("Total Donations").style("font-size", "10px").attr("alignment-baseline","middle").style("fill","white")
 
     var clip = svg1.append("defs").append("svg:clipPath")
         .attr("id", "clip")

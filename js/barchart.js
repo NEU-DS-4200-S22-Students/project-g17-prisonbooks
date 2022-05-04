@@ -1,5 +1,4 @@
 //Define data
-
 d3.json('data/topdonors.json').then(function(data) {
    
 
@@ -47,7 +46,7 @@ d3.json('data/topdonors.json').then(function(data) {
       .append('text')
         .attr('y', 30)
         .attr('x', 20)
-        .style('stroke', 'black')
+        .style('stroke', 'white')
         .text('Count');
     
     let xAxis = svg
@@ -69,34 +68,30 @@ d3.json('data/topdonors.json').then(function(data) {
       .append('text')
         .attr('x', width - margin.left + 5)
         .attr('y', -10)
-        .style('stroke', 'black')
+        .style('stroke', 'white')
         .text('Donor');
-    
-    
-          // ----------------
-      // Create a tooltip
-      // ----------------
 
     // Three function that change the tooltip when user hover / move / leave a cell
-var div = svg.append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-var mouseover = function(event, d) {
-    div.transition()
-        .duration(200)
-        .style("opacity", .9);
-    div.html("Count: " + d.count)
-        .style("left", (event.pageX) + "px")
-        .style("top", (event.pageY - 28) + "px");
-    };
-
-
-var mouseout = function(event, d) {
-    div.transition()
-        .duration(500)
+    var div = d3.select("#vis2").append("div")
+        .attr("class", "tooltip")
+        .style("background-color", "black")
         .style("opacity", 0);
-    };
+
+    var mouseover = function(event, d) {
+        div.transition()
+            .duration(200)
+            .style("opacity", .9);
+        div.html("Count: " + d.count)
+            .style("left", (event.pageX) + "px")
+            .style("top", (event.pageY - 28) + "px");
+        };
+
+
+    var mouseout = function(event, d) {
+        div.transition()
+            .duration(500)
+            .style("opacity", 0);
+        };
 
     
     //Draw bars
