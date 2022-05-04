@@ -74,6 +74,14 @@ h1, h2, h3 {
 	transform: translate(20%, - 150%);
 }
 
+#stackedbardescription {
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	transform: translate(20%, - 150%);
+}
+
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
 #forkongithub a{
 	background:#00F;
