@@ -64,8 +64,8 @@ d3.csv("data/common_rest_aggregated_count.csv").then ( function(data) {
         // Handmade legend
 svg5.append("rect").attr("x",0).attr("y",342).attr("width", 15).attr("height", 15).style("fill", '#377eb8')
 svg5.append("rect").attr("x",0).attr("y",372).attr("width", 15).attr("height", 15).style("fill", '#e41a1c')
-svg5.append("text").attr("x", 20).attr("y", 355).text("True").style("font-size", "15px").attr("alignment-baseline","middle").style("fill", "white")
-svg5.append("text").attr("x", 20).attr("y", 385).text("False").style("font-size", "15px").attr("alignment-baseline","middle").style("fill", "white")
+svg5.append("text").attr("x", 20).attr("y", 355).text("Yes").style("font-size", "15px").attr("alignment-baseline","middle").style("fill", "white")
+svg5.append("text").attr("x", 20).attr("y", 385).text("No").style("font-size", "15px").attr("alignment-baseline","middle").style("fill", "white")
 
 
 
