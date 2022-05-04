@@ -94,7 +94,7 @@ d3.csv('data/topdonorsnew.csv').then(function(data) {
             .duration(500)
             .style("opacity", 0);
         };
-=======
+
   // Create SVG
   let
     width = 500,
