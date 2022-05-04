@@ -1,5 +1,10 @@
 //Define data
+<<<<<<< HEAD
 d3.json('data/topdonors.json').then(function(data) {
+=======
+
+d3.csv('data/topdonorsnew.csv').then(function(data) {
+>>>>>>> 06f05f166b8ce0719def313d24f4f6925feec2bc
    
 
 <<<<<<< HEAD
@@ -121,7 +126,7 @@ d3.json('data/topdonors.json').then(function(data) {
   let xScale = d3.scaleBand()
     .domain(
       data.map(function(d) {
-        return d.donor;
+        return d.name;
       })
     )
     .range([margin.left, width - margin.right - 10])
