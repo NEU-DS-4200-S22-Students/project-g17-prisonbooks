@@ -189,7 +189,6 @@ var mouseout = function(event, d) {
       .duration(500)
       .style("opacity", 0);
   };
->>>>>>> 8be1ffc6d29d7a23b87613bfa574289dda020fe7
 
   
   //Draw bars
