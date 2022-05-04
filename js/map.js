@@ -22,7 +22,7 @@ d3.csv("data/finalmapdata_fixed.csv").then(function(data){
         fillColor: colorScale(d.accept_books),
         fillOpacity: 0.5
           })
-    let txt = "<b>Facility Name: </b>"+d.FacilityName 
+    let txt = "<b>Facility Name: </b>"+d.Facility_Name 
     +"<br><b>City: </b>"+ d.City
     +"<br><b> Numbers of books allowed: </b>" + d.Number_of_books_accepted
     +"<br><b> Require paperback book: </b>" + d.only_paperback

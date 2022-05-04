@@ -1,4 +1,4 @@
-Facility Name,lat,long,level_0,State,City,Primary Restriction,Other Requirement 1,Other Requirement 2,Other Requirement 3,Other Requirement 4,Color Coding,num_max_books,only_paperback,condition_good_used_okay,bundle,has_no_restrictions,condition_new,needs_prior_approval,hardcover_okay,accept_books,Number_of_books_accepted
+Facility_Name,lat,long,level_0,State,City,Primary Restriction,Other Requirement 1,Other Requirement 2,Other Requirement 3,Other Requirement 4,Color Coding,num_max_books,only_paperback,condition_good_used_okay,bundle,has_no_restrictions,condition_new,needs_prior_approval,hardcover_okay,accept_books,Number_of_books_accepted
 Alex City Community Based Facility / Community Work Center,30.737974,-88.108942,0,Alabama,Alexander City,,,,,,,9999,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,No limit on books,No limit on books
 FCI Aliceville,38.15447,-95.55193,1,Alabama,Aliceville,White envelopes only,,"No stationary, no blank greeting cards, no journals, no blank paper",,,white envelopes only,5,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Accept limited books,5
 Davis Correctional ,35.089994,-96.443911,2,Alabama,Atmore,,,,,,,9999,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,No limit on books,No limit on books
@@ -943,7 +943,7 @@ Toledo Correctional ,41.66394,-83.55521,871,Ohio,Toledo,,,,,,,9999,TRUE,FALSE,FA
 Northeast Ohio CC,41.130889,-80.630992,872,Ohio,Youngstown,,,,,,,9999,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,No limit on books,No limit on books
 Ohio State Penitentiary (OSP) ,41.111264,-80.575346,873,Ohio,Youngstown,,,,,,,9999,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,No limit on books,No limit on books
 HMCC,61.303066,-149.579945,874,Oklahoma,Atoka,,,,,,,9999,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,No limit on books,No limit on books
-CCF,52.221663,-3.935688,876,Oklahoma,Cushing,,,,,3/1/2010 0:00,,9999,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,No limit on books,No limit on books
+CCF,52.221663,-3.935688,876,Oklahoma,Cushing,,,,,3/1/10 0:00,,9999,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,No limit on books,No limit on books
 William S. Key Correctional ,53.341878,-6.262647,878,Oklahoma,Fort Supply,"Send: ""c/o Chaplain, Ron Roskang""",,,,,"send: ""c/o chaplain, ron roskang""",9999,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,No limit on books,No limit on books
 Tillman County Sheriff's Office,34.37795,-99.01668,879,Oklahoma,Frederick,,,,,,,9999,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,No limit on books,No limit on books
 OSP,54.376553,18.287587,880,Oklahoma,Granite,,,,,,,9999,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,No limit on books,No limit on books
