@@ -14,6 +14,40 @@ const svg5 = d3.select("#stackedbar")
 // Parse the Data
 d3.csv("data/common_rest_aggregated_count.csv").then ( function(data) {
 
+
+
+
+      // ----------------
+      // Create a tooltip 
+      // ----------------
+
+    // Three function that change the tooltip when user hover / move / leave a cell
+    var div = d3.select("#stackedbar").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+var mouseover = function(event, d) {
+    div.transition()
+        .duration(200)
+        .style("opacity", .9);
+
+    div.html("Percentage: " + (d[1] - d[0] )+ '%')
+        .style("left", (event.pageX) + "px")
+        .style("top", (event.pageY - 28) + "px");
+    };
+
+
+var mouseout = function(event, d) {
+    div.transition()
+        .duration(500)
+        .style("opacity", 0);
+    };
+
+
+
+    
+
+
   // List of subgroups = header of the csv files = soil condition here
   const subgroups = data.columns.slice(1)
 
@@ -81,35 +115,13 @@ svg5.append("text").attr("x", 20).attr("y", 385).text("False").style("font-size"
         .attr("y", d => y(d[1]))
         .attr("height", d => y(d[0]) - y(d[1]))
         .attr("width",x.bandwidth())
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
 
 
 
 
-      // ----------------
-      // Create a tooltip 
-      // ----------------
 
-    // Three function that change the tooltip when user hover / move / leave a cell
-    var div = d3.select("#stackedbar").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-var mouseover = function(event, d) {
-    div.transition()
-        .duration(200)
-        .style("opacity", .9);
-
-    div.html("Percentage: " + (d[1] - d[0] )+ '%')
-        .style("left", (event.pageX) + "px")
-        .style("top", (event.pageY - 28) + "px");
-    };
-
-
-var mouseout = function(event, d) {
-    div.transition()
-        .duration(500)
-        .style("opacity", 0);
-    };
     
 
 
