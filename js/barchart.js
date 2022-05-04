@@ -78,7 +78,7 @@ d3.json('data/topdonors.json').then(function(data) {
       // ----------------
 
     // Three function that change the tooltip when user hover / move / leave a cell
-var div = svg.append("div")
+var div = svg.select("#vis2").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
