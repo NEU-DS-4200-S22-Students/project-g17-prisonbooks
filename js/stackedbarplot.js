@@ -31,7 +31,7 @@ var mouseover = function(event, d) {
         .duration(200)
         .style("opacity", .9);
 
-    div.html("Percentage: " + (d[1] - d[0] )+ '%')
+    div.html("Percentage: " + Math.round(d[1] - d[0])+ '%')
         .style("left", (event.pageX) + "px")
         .style("top", (event.pageY - 28) + "px");
     };
@@ -45,7 +45,7 @@ var mouseout = function(event, d) {
 
 
 
-    
+
 
 
   // List of subgroups = header of the csv files = soil condition here
