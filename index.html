@@ -60,6 +60,7 @@
           </p>
         <button class='big-button-inverse-button' onClick="document.getElementById('demo-video').scrollIntoView();">Let's Begin</button>
       </div>
+
       <div class='slide' id='demo-video'>
         <!-- Add our video to the html-->
         <p>DEMO VIDEO</p>
@@ -70,6 +71,8 @@
         </video>
         <button class='flow-button' onclick="document.getElementById('intro-1').scrollIntoView();">Next</button>
       </div>
+
+
       <div class='slide' id='intro-1'>
         <p class="text-section1">
          <!-- Replace with our abstract -->
@@ -80,6 +83,8 @@
         </p>
         <button class='flow-button' onclick="document.getElementById('intro-2').scrollIntoView();">Next</button>
       </div>
+
+
       <div class='slide' id='intro-2'>
         <p class="text-section">
           <!-- Replace with our description-->
@@ -87,9 +92,12 @@
           <br/>
           They are also interested to learn more about the <strong>flow of donations into the organization.</strong>
         </p>
+
         <button class='flow-button-back-button' onclick="document.getElementById('intro-1').scrollIntoView();">Back</button>
         <button class='flow-button' onclick="document.getElementById('intro-data').scrollIntoView();">Next</button>
       </div>
+
+
       <div class='slide' id='intro-data'>
         <h1 class='storyboard-h2'> 
         JAIL RESTRICTION DATASET</h1>
@@ -102,8 +110,24 @@
            and additional restrictions which mainly looked at the content within the book.
         </p>
         <button class='flow-button-back-button' onclick="document.getElementById('intro-2').scrollIntoView();">Back</button>
+        <button class='flow-button' onclick="document.getElementById('word_cloud').scrollIntoView();">Next</button>
+      </div>
+
+
+      <div class='slide' id='word_cloud'>
+        <!-- Add our video to the html-->
+        <p>Word Cloud</p>
+
+        <img src="img/wc.png" alt="word cloud of ..."  style="vertical-align:middle">
+
+          <p> We parsed through the manually typed notes to identify the main keywords and generated this word cloud. Phrases that were more frequent are larger in size and have a greater color intensity.
+          <br/>
+          This visualization can help the user explore the additional restrictions and provide a better idea of what types of books they could avoid during the collection stage.</p>
+      </img>
         <button class='flow-button' onclick="document.getElementById('map').scrollIntoView();">Next</button>
       </div>
+
+
       <div class='slide' id='map'>
         <div id="mymap" style="width:800px; height: 700px"></div>
         <p class="description">
